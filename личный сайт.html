@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме аналитика данных</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        
+        nav {
+            background-color: #2c3e50;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 25px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        
+        main {
+            padding: 40px 0;
+            min-height: calc(100vh - 140px);
+        }
+        
+        .page {
+            display: none;
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        h1, h2, h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 20px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        
+        .image-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .thumbnail {
+            width: 100px;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .thumbnail:hover {
+            transform: scale(1.05);
+            border-color: #3498db;
+        }
+        
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-image: url('"C:\Users\nicit\OneDrive\Изображения\Пленка\фон таблицы.jpg"');
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        tr:hover {
+            background-color: #f1f8ff;
+        }
+        
+        .table-image {
+            width: 80px;
+            height: auto;
+            border-radius: 4px;
+        }
+        
+        
+        .form-container {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        .page-nav {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        
+        .page-nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+        }
+        
+        .page-nav li {
+            margin: 0 15px 0 0;
+        }
+        
+        .page-nav a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .page-nav a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">Аналитик Данных</div>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link active" data-page="about">Обо мне</a></li>
+                <li><a href="#" class="nav-link" data-page="portfolio">Портфолио</a></li>
+                <li><a href="#" class="nav-link" data-page="contacts">Контакты</a></li>
+                <li><a href="https://github.com/Olitomo/petprojects" target="_blank">Пет-проекты на GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+        <section id="about" class="page active">
+            <h1>Обо мне</h1>
+            
+            <div class="page-nav">
+                <ul>
+                    <li><a href="#resume">Резюме</a></li>
+                    <li><a href="#education">Образование</a></li>
+                    <li><a href="#certificates">Курсы</a></li>
+                    <li><a href="#skills">Навыки</a></li>
+                    <li><a href="#current-job">Текущая работа</a></li>
+                </ul>
+            </div>
+            
+            <main class="container">
+            <h1 id="resume">Моё резюме</h1>
+            <div class="image-container">
+                <a href="c:\Users\nicit\Downloads\cv_Product_page-0001.jpg">
+                <img src="c:\Users\nicit\Downloads\cv_Product_page-0001.jpg" class="thumbnail">
+                <p>Нажмите на изображение для просмотра в полном размере</p>
+                </a>
+            </div>
+            <h2 id="education">Образование</h2>
+            <ul>
+                <li>Факультет математики, НИУ ВШЭ, 2024-2028</li>
+            </ul>
+            
+            <h2 id="certificates">Курсы</h2>
+            <ol>
+                <li>Курс по анализу данных, Т-образование,2025</li>
+                <li>Основы Python, Яндекс.Образование,2024</li>
+                <li>Тренировка по алгоритмам, 2025</li>
+            </ol>
+
+            <h2 id="skills">Технические навыки</h2>
+            <ul>
+                <li>Языки программирования:
+                    <ul>
+                        <li>Python (Pandas, NumPy, Matplotlib, Seaborn,Scikit-learn)</li>
+                        <li>SQL</li>
+                        <li>Excel</li>
+                        <li>R</li>
+                    </ul>
+                </li>
+                <li>Визуализация данных:
+                    <ul>
+                        <li>Tableau</li>
+                        <li>Yandex DataLens</li>
+                        <li>Power Point</li>
+                        <li>Power BI</li>
+                        <li>Matplotlib, Seaborn</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <h2>Нетехнические навыки</h2>
+            <ol>
+                <li>Аналитическое мышление</li>
+                <li>Коммуникативные навыки</li>
+                <li>Решение проблем</li>
+                <li>Работа в команде</li>
+                <li>Управление проектами</li>
+                <li>Любознательность</li>
+                <li>Проактивность</li>
+            </ol>
+            
+            <h2>Опыт работы</h2>
+            <h3 id="current-job">Аналитик данных, Гознак (2025)</h3>
+            <h3>Обязанности:</h3>
+            <ul>
+                <li>Разработка и внедрение KPI для оценки эффективности бизнес-процессов</li>
+                <li>Создание дашбордов в Tableau для мониторинга ключевых метрик</li>
+                <li>Проведение A/B тестов для оптимизации маркетинговых кампаний</li>
+                <li>Прогнозирование продаж с использованием методов машинного обучения</li>
+            </ul>
+            <p  align="center"><a href="#top">К началу</a></p>
+            </section>
+            </main>
+    
+  
+        
+
+        
+        <section id="portfolio" class="page">
+            <h1>Портфолио проектов</h1>
+            
+            <h2 id="dashboard-projects">Дашборды</h2>
+            <ul>
+                <li>Дашборд для мониторинга продаж в реальном времени</li>
+                <li>Дашборд анализа клиентского поведения</li>
+                <li>Дашборд эффективности маркетинговых кампаний</li>
+            </ul>
+            
+            <h2 id="analysis-projects">Пет-проекты</h2>
+            <ol>
+                <li>Анализ результата А/Б теста</li>
+                <li>Расчет UNIT-экономики</li>
+                <li>Анализ воронки продаж</li>
+            </ol>
+            <table style="background-image: url('фон.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center;" border="1" width="100%" cellpadding="10">
+    <thead>
+        <tr style="background-color: rgba(255,255,255,0.8);">
+            <th>Проект</th>
+            <th>Технологии</th>
+            <th>Результат</th>
+            <th>Визуализация</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="background-color: rgba(255,255,255,0.7);">
+            <td>Анализ результата А/Б теста</td>
+            <td>Python, pandas, matplotlib, scipy</td>
+            <td>Результаты признаны не статистически значимыми</td>
+            <td align="center">
+                <img src="AB.png" width="100" alt="График АБ теста">
+                <br>
+                <small>График результатов</small>
+            </td>
+        </tr>
+        <tr style="background-color: rgba(255,255,255,0.7);">
+            <td>Расчет UNIT-экономики</td>
+            <td>Python, pandas, matplotlib, numpy, scikit-learn</td>
+            <td>Оценена окупаемость бизнеса на основе данных об одном пользователе, расчитан LTV, CAC, период окупаемости</td>
+            <td align="center">
+                <img src="UNIT.png" width="100" alt="Диаграмма UNIT-экономики">
+                <br>
+                <small>Диаграмма метрик</small>
+            </td>
+        </tr>
+        <tr style="background-color: rgba(255,255,255,0.7);">
+            <td>Анализ воронки продаж</td>
+            <td>Python Pandas Plotly</td>
+            <td>Проведено построение воронки продаж, аудитория разбита на сегменты, проанализирован каждый этап, выдвинуты гипотезы об улучшении конверсии</td>
+            <td align="center">
+                <img src="Funnel.png" width="100" alt="Воронка продаж">
+                <br>
+                <small>Визуализация воронки</small>
+            </td>
+        </tr>
+    </tbody>
+</table>
+            
+        </section>
+
+        
+        <section id="contacts" class="page">
+            <h1>Контакты</h1>
+            
+            <h2 id="contact-form">Форма для связи</h2>
+            <div class="form-container">
+                <form action="https://httpbin.org/post" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="lastname">Фамилия *</label>
+                            <input type="text" id="lastname" name="lastname" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="firstname">Имя *</label>
+                            <input type="text" id="firstname" name="firstname" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="group">Компания *</label>
+                            <input type="text" id="group" name="group">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Мобильный телефон *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Электронная почта *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message-date">Дата отправки сообщения</label>
+                        <input type="date" id="message-date" name="message-date">
+                    </div>
+                    
+                    <input type="hidden" name="form-type" value="contact">
+                    
+                    <button type="submit">Отправить</button>
+                </form>
+            </div>
+            
+            <h2 id="review-form">Форма для отзыва о работе</h2>
+            <div class="form-container">
+                <form action="https://httpbin.org/post" method="POST">
+                    <div class="form-group">
+                        <label for="reviewer-name">Ваше имя</label>
+                        <input type="text" id="reviewer-name" name="reviewer-name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="project-type">Тип проекта</label>
+                        <div>
+                            <input type="radio" id="data-analysis" name="project-type" value="data-analysis" checked>
+                            <label for="data-analysis">Анализ данных</label>
+                            
+                            <input type="radio" id="dashboard" name="project-type" value="dashboard">
+                            <label for="dashboard">Дашборд</label>
+                            
+                            <input type="radio" id="forecast" name="project-type" value="forecast">
+                            <label for="forecast">Прогнозирование</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Какие аспекты работы вам понравились?</label>
+                        <div>
+                            <input type="checkbox" id="quality" name="liked-aspects" value="quality" checked>
+                            <label for="quality">Качество анализа</label>
+                            
+                            <input type="checkbox" id="communication" name="liked-aspects" value="communication">
+                            <label for="communication">Коммуникация</label>
+                            
+                            <input type="checkbox" id="timeliness" name="liked-aspects" value="timeliness">
+                            <label for="timeliness">Своевременность</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="project-duration">Срок выполнения (дни)</label>
+                            <input type="number" id="project-duration" name="project-duration" min="1" max="365" value="30">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="satisfaction">Уровень удовлетворенности (1-10)</label>
+                            <input type="number" id="satisfaction" name="satisfaction" min="1" max="10" value="8">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="review-date">Дата отзыва</label>
+                        <input type="date" id="review-date" name="review-date">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Пароль для доступа к деталям проекта</label>
+                        <input type="password" id="password" name="password">
+                    </div>
+                    
+                    <input type="hidden" name="form-type" value="review">
+                    <input type="hidden" name="default-review" value="positive">
+                    
+                    <button type="submit">Отправить отзыв</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    
+    
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    navLinks.forEach(navLink => navLink.classList.remove('active'));
+                    pages.forEach(page => page.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    const pageId = this.getAttribute('data-page');
+                    document.getElementById(pageId).classList.add('active');
+                });
+            });
+            
+            const pageNavLinks = document.querySelectorAll('.page-nav a');
+            pageNavLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (this.getAttribute('href') === '#top') {
+                        e.preventDefault();
+                        window.scrollTo({top: 0, behavior: 'smooth'});
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
