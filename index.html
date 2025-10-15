@@ -458,8 +458,8 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="message-date">Дата отправки сообщения</label>
-                        <input type="date" id="message-date" name="message-date">
+                        <label for="question">Дата отправки сообщения</label>
+                        <input type="text" id="question" name="question">
                     </div>
                     
                     <input type="hidden" name="form-type" value="contact">
@@ -490,48 +490,7 @@
                         </div>
                     </div>
                     
-                    <div class="form-group">
-                        <label>Какие аспекты работы вам понравились?</label>
-                        <div>
-                            <input type="checkbox" id="quality" name="liked-aspects" value="quality" checked>
-                            <label for="quality">Качество анализа</label>
-                            
-                            <input type="checkbox" id="communication" name="liked-aspects" value="communication">
-                            <label for="communication">Коммуникация</label>
-                            
-                            <input type="checkbox" id="timeliness" name="liked-aspects" value="timeliness">
-                            <label for="timeliness">Своевременность</label>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="project-duration">Срок выполнения (дни)</label>
-                            <input type="number" id="project-duration" name="project-duration" min="1" max="365" value="30">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="satisfaction">Уровень удовлетворенности (1-10)</label>
-                            <input type="number" id="satisfaction" name="satisfaction" min="1" max="10" value="8">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="review-date">Дата отзыва</label>
-                        <input type="date" id="review-date" name="review-date">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="password">Пароль для доступа к деталям проекта</label>
-                        <input type="password" id="password" name="password">
-                    </div>
-                    
-                    <input type="hidden" name="form-type" value="review">
-                    <input type="hidden" name="default-review" value="positive">
-                    
-                    <button type="submit">Отправить отзыв</button>
-                </form>
-            </div>
+                  
         </section>
     </main>
 
@@ -569,5 +528,6 @@
     </script>
 </body>
 </html>
+
 
 
